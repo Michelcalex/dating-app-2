@@ -4,7 +4,7 @@ window.addEventListener('load', function() {
 
 
 function getProfiles() {
-    let getNewProfileBtn = document.querySelector('#get-new-profile button');
+    let getNewProfileBtn = document.querySelector('#new-profile');
     getNewProfileBtn.addEventListener('click', function() {
 
         let request = new XMLHttpRequest();
@@ -31,8 +31,8 @@ function showProfiles(profile) {
 
     child.innerHTML = Mustache.render(template.innerHTML, {
         imgSrc: profile.picture.large,
-        userFirstName: profile.name.first,
-        userLastName: profile.name.last,
+        userFirstName: capitalizeFirstLetter(profile.name.first),
+        userLastName: capitalizeFirstLetter(profile.name.last),
     });
 
     let likeBtn = child.querySelector('#like');
@@ -47,9 +47,19 @@ function showProfiles(profile) {
         nopeBtn.classList.add('fade');
     });
 
-    parent.appendChild(child);  
+    parent.appendChild(child);
+
+
+    let clearBtn = document.querySelector('#clear');
+    clearBtn.addEventListener('click', function() {
+        parent.innerHTML='';
+    });  
 }
 
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
 
 
