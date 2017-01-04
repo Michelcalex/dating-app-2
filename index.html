@@ -7,11 +7,26 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/oj.mustache/0.7.2/oj.mustache.min.js"></script>
     <script src="dating-app-2.js"></script>
+    <script id="user-profile-template" type="x-mustache-template">
+        <img src="{{ imgSrc }}"/>
+        <h2>{{ userFirstName }} {{userLastName}}</h2>
+        <button id="like">Like</button>
+        <button id="nope">Nope</button>
+    </script>
 </head>
 <body>
-    <h1>Do you like me now? 2.0</h1>
+    <header>
+        <h1>Do you like me now? 2.0</h1>
+    </header>
+    <main>
+        <section id="get-new-profile">
+            <button>Get New Profile</button>
+        </section>
+        <section id="user-profiles">
+            <ul>
+
+            </ul>
+        </section>
+    </main>
 </body>
-<main>
-    
-</main>
 </html>
