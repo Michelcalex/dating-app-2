@@ -38,11 +38,13 @@ function showProfiles(profile) {
     let likeBtn = child.querySelector('#like');
     likeBtn.addEventListener('click', function() {
         console.log('I like ' + profile.name.first + ' ' + profile.name.last);
+        likeBtn.classList.add('fade');
     });
 
     let nopeBtn = child.querySelector('#nope');
     nopeBtn.addEventListener('click', function() {
         console.log('I do not like ' + profile.name.first + ' ' + profile.name.last);
+        nopeBtn.classList.add('fade');
     });
 
     parent.appendChild(child);  

@@ -5,11 +5,78 @@
 @include foundation-global-styles;
 @include foundation-grid;
 
-body {
-    background-color: teal;
+
+header {
+    @include grid-row();
+    background-color: #E1F0F0;
+    text-align: center;
+
+    h1 {
+        @include grid-column(12);
+        color: #031919;
+    }
 }
 
-button {
-    background-color: white;
-    border-radius: 5px;
+
+main {
+    @include grid-row();
+    background-color: #296666;
+
+    #get-new-profile {
+        @include grid-row();
+        text-align: center;
+
+        button {
+            background-color: #E1F0F0;
+            color: #031919;
+            margin: 5%;
+            padding: 1%;
+            border-radius: 5px;
+        }
+    }
+
+    #user-profiles {
+        @include grid-row();
+
+        ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+
+            li {
+                @include grid-row();
+                background-color: #A3CCCC;
+                width: 50%;
+                margin: 20px auto;
+                padding: 2%;
+                display: flex;
+                justify-content: space-around;
+
+                .fade {
+                    opacity: 0.5;
+                }
+
+                img {
+                    @include grid-column(2);
+                    width: 30%;
+                }
+
+                .user-summary {
+                    @include grid-column(4);
+                    padding: 15px;
+                    width: 50%;
+
+                    #like, #nope {
+                        background-color: #0E8C8C;
+                        padding: 5%;
+                        border-radius: 5px;
+                    }
+
+                    h2 {
+                        margin-top: 0px;
+                    }
+                }
+            }
+        }
+    }
 }

@@ -9,9 +9,11 @@
     <script src="dating-app-2.js"></script>
     <script id="user-profile-template" type="x-mustache-template">
         <img src="{{ imgSrc }}"/>
-        <h2>{{ userFirstName }} {{userLastName}}</h2>
-        <button id="like">Like</button>
-        <button id="nope">Nope</button>
+        <div class="user-summary">
+            <h2>{{ userFirstName }} {{userLastName}}</h2>
+            <button id="like">Like</button>
+            <button id="nope">Nope</button>
+        </div>
     </script>
 </head>
 <body>
