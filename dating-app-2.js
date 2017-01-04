@@ -4,18 +4,22 @@ window.addEventListener('load', function() {
 
 
 function getProfiles() {
-    let request = new XMLHttpRequest();
-    request.open('GET', 'https://randomuser.me/api');
-    request.addEventListener('load', function() {
-        let response = JSON.parse(request.responseText);
-        console.log(response);
+    let getNewProfileBtn = document.querySelector('#get-new-profile button');
+    getNewProfileBtn.addEventListener('click', function() {
 
-        for(let i = 0; i < response.results.length; i++) {
-            showProfiles(response.results[i]);
-        }
-    });
+        let request = new XMLHttpRequest();
+        request.open('GET', 'https://randomuser.me/api');
+        request.addEventListener('load', function() {
+            let response = JSON.parse(request.responseText);
+            console.log(response);
 
-    request.send();
+            for(let i = 0; i < response.results.length; i++) {
+                showProfiles(response.results[i]);
+            }
+        });
+
+        request.send();
+    });   
 }
 
 
@@ -33,7 +37,7 @@ function showProfiles(profile) {
 
     let likeBtn = child.querySelector('#like');
     likeBtn.addEventListener('click', function() {
-        console.log('I got a new profile ' + profile.name.first + profile.name.last);
+        console.log('I got a new profile ' + profile.name.first + ' ' + profile.name.last);
     })
 
     parent.appendChild(child);  
